@@ -225,7 +225,7 @@ func TestErrorHandling(t *testing.T) {
 			"unknown operator: BOOLEAN + BOOLEAN",
 		},
 		{"foobar", "identifier not found: foobar"},
-		{`"Hello" - "World"`, "unknown operator: STRING -"},
+		{`"Hello" - "World"`, "unknown operator: STRING - STRING"},
 	}
 
 	for _, tt := range tests {
@@ -388,8 +388,8 @@ func TestArrayLiteral(t *testing.T) {
 	}
 
 	testIntegerObject(t, result.Elements[0], 1)
-	testIntegerObject(t, result.Elements[0], 4)
-	testIntegerObject(t, result.Elements[0], 6)
+	testIntegerObject(t, result.Elements[1], 4)
+	testIntegerObject(t, result.Elements[2], 6)
 }
 
 func TestArrayIndexExpressions(t *testing.T) {
